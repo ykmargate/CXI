@@ -5,7 +5,10 @@ class DB{
      * @var PDO
      */
     private $connection;
-
+    /*
+    public $dsns;
+    public $base_dir;
+    */
     /**
      * DB constructor.
      * @param PDO|null $connection
@@ -13,10 +16,13 @@ class DB{
     public function __construct(PDO $connection = null){
         $this->connection = $connection;
         if ($this->connection === null) {
+            $base_dir = dirname(__FILE__)."/../config/dsns.ini";
+            $dsns = parse_ini_file( $base_dir, true );
+            $denom_db = $dsns['DSNS']['denom_db'];
             $this->connection = new PDO(
-                'mysql:host=localhost;dbname=CXI',
-                'cxi_user',
-                'cxi_pass'
+                $denom_db['dbtype'].':host='.$denom_db['host'].';dbname='.$denom_db['database'],
+                $denom_db['username'],
+                $denom_db['password']
             );
             $this->connection->setAttribute(
                 PDO::ATTR_ERRMODE,
