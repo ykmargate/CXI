@@ -11,7 +11,7 @@
                 $("#currency").text($("#currency_code").find("option:selected").val());
             });
             $("#getresult").on('click', function(){
-                $("#result, #error").hide();
+                $('#result, #error').hide();
                 var error_message = "";
                 var location_id = $("#location_id").find("option:selected").val();
                 var currency_code = $("#currency_code").find("option:selected").val();

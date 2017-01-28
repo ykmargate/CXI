@@ -12,4 +12,4 @@ What it’s doing:
 For a simple example, the user requests 5,245 CAD and the available denominations are 5, 10, 20, 100, 500.
 Assume the browser sends the location\_id, currency\_code, and amount entered by the user to the system.
 
-[Live demo](http://home.ekriv.com/CXI/denom_json.html)
+[Live demo](http://floridawebdev.com/codesamples/CXI/denom_json.html)
